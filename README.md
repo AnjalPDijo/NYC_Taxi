@@ -9,10 +9,10 @@ This repository contains the complete implementation of a multi-stage data minin
 
 The analysis is structured around four analytical stages:
 
-1. **Fare Prediction Model** — Random Forest regression to estimate expected fares from observable trip characteristics
-2. **Zone-Level Residual Analysis** — Spatial profiling of deviations between observed and predicted fares
-3. **K-Means Clustering** — Identification of distinct zone service typologies
-4. **Isolation Forest Anomaly Detection** — Detection of statistically unusual trips
+1. **Fare Prediction Model** - Random Forest regression to estimate expected fares from observable trip characteristics
+2. **Zone-Level Residual Analysis** - Spatial profiling of deviations between observed and predicted fares
+3. **K-Means Clustering** - Identification of distinct zone service typologies
+4. **Isolation Forest Anomaly Detection** - Detection of statistically unusual trips
 
 ---
 
@@ -87,7 +87,7 @@ If running on Google Colab all libraries except `imbalanced-learn` are pre-insta
    ```python
    df = pd.read_csv('final_taxi_data.csv')
    ```
-4. Run all cells in order — the notebook is structured sequentially and each section builds on the previous one
+4. Run all cells in order - the notebook is structured sequentially and each section builds on the previous one
 
 ### Locally
 
@@ -120,20 +120,20 @@ The notebook is organised into the following sections:
 - Spatial patterns: trip volume by borough
 - Fare-per-mile distribution across boroughs
 
-### 3. Fare Prediction Model — Fix 1
+### 3. Fare Prediction Model 
 - Random Forest Regressor trained on trip features
 - Stratified 80/20 train-test split by borough (PU_Borough)
 - Performance evaluation: R², RMSE, MAE
 - Fairness residual computation for all 697,821 trips
 
-### 4. Zone-Level Residual Analysis — Fix 2
+### 4. Zone-Level Residual Analysis
 - Aggregation of residuals by PULocationID
 - Identification of top 10 overpriced and underpriced zones
 - EWR zone filtering for stability
 - Borough-level fairness summary
 - One-way ANOVA significance testing (p < 0.001)
 
-### 5. Borough-Level Model Comparison — Fix 4
+### 5. Borough-Level Model Comparison 
 - Separate Random Forest models trained for Manhattan, Brooklyn, Queens, and Bronx
 - Performance gradient analysis across boroughs
 - Comparison table: R², RMSE, MAE per borough
@@ -210,6 +210,6 @@ NYC Taxi and Limousine Commission, "Yellow Taxi Trip Records — January 2026,"
 
 ## Notes
 
-- The notebook was developed on Google Colab with a GPU runtime — training the Random Forest models on the full dataset takes approximately 10–15 minutes on CPU and 3–5 minutes with GPU acceleration
+- The notebook was developed on Google Colab with a GPU runtime - training the Random Forest models on the full dataset takes approximately 10–15 minutes on CPU and 3–5 minutes with GPU acceleration
 - The `anomaly` column in the final dataset has one NaN value (one trip did not receive an Isolation Forest score due to a missing feature value) — this is handled in the anomaly rate calculations
 - January 2026 is the first full month of NYC's CBD congestion pricing regime — the `cbd_congestion_fee` column captures this policy's effect on trip pricing
