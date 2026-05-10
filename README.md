@@ -31,17 +31,6 @@ The analysis is structured around four analytical stages:
 
 ---
 
-## Repository Structure
-
-```
-├── final_data.ipynb          # Main analysis notebook — all four pipeline stages
-├── README.md                 # This file
-└── data/
-    └── final_taxi_data.csv   # Cleaned and preprocessed dataset (not included — see Data section below)
-```
-
----
-
 ## Dataset
 
 The dataset used in this project is the **NYC Yellow Taxi Trip Records for January 2026**, sourced from the NYC Taxi and Limousine Commission (TLC) open data portal.
